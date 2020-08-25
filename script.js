@@ -68,7 +68,8 @@ function writePassword() {
     // Returning the final product to be placed in the text box.
     return finalPassword;
   };
-
+  
+  // PasswordText will show the reult in the text area
   passwordText.value = password;
 };
 
