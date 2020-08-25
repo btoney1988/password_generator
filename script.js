@@ -45,7 +45,7 @@ function writePassword() {
     for (let i = 0; i < length; i += typesCount) {
       // Based off user input the criteria is set run the randomize functions 
       typesArr.forEach(type => {
-
+        // Function to go through each key individually inorder to not get the same numbers repeated
         const funcName = Object.keys(type)[0];
 
         console.log('funcName: ' + funcName);
