@@ -1,8 +1,13 @@
 # password_generator
 
-##
- - This is a random password generator. When you click on the Generate Password button, you are shown various prompts that question the criteria for the password being generated. The first prompt is character length between 8-128 (if you pick outside of the number you are presented with an alert.). Then you are asked to confirm the various characters that will go into the password. When finished with the prompts the password displays in the text box shown.
- - I got some assistance from the youtube channel Traversy Madia ('https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA'). Along with https://www.w3schools.com/
+
+# Password Generator
+ -  This is a random password generator. When you click on the Generate Password button, you are shown various prompts that question the criteria for the password being generated. The first prompt is character length between 8-128 (if you pick outside of the number you are presented with an alert.). Then you are asked to confirm the various characters that will go into the password. When finished with the prompts the password displays in the text box of the page. The functions work based on the user input via the prompt and confirms in order give the correct password needed.
+ - I left the console logs in so that the user can see what is being input if they use the inspect option.
+
+# References
+ - I got some assistance from the youtube channel Traversy Madia 'https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA'
+ - W3 schools 'https://www.w3schools.com/'
  - Charset codes thanks to 'http://www.net-comber.com/charset.html'
 
  # Screenshots
