@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
 // Generator function
 function generatePassword(characterLength, upper, lower, number, symbol) {
   // Final password set as a string
@@ -26,9 +27,10 @@ function generatePassword(characterLength, upper, lower, number, symbol) {
       i--;
     }
   }
+
+  // Final password length equals user input.
   var generatedPassword = finalPassword.slice(0, characterLength);
 
-  console.log(generatedPassword);
   return generatedPassword;
 }
 // Write password to the #password input
@@ -42,19 +44,21 @@ function writePassword() {
     var lower = confirm("Would you like to use lowercase letters?");
     var number = confirm("Would you like to use numbers?");
     var symbol = confirm("Would you like to use symbols?");
+    // Run generate function.
+    var password = generatePassword(characterLength, upper, lower, number, symbol);
+    // Generated password will display in the text area given.
+    var passwordText = document.querySelector("#password");
+    
+    console.log(password);
+    passwordText.value = password;
   } else {
-
     // Alert to request numbers between 8-128.
     alert("Please choose numbers between 8 - 128.");
     return;
   }
 
-  var password = generatePassword(characterLength, upper, lower, number, symbol);
-  // Generated password will display in the text area given.
-  var passwordText = document.querySelector("#password");
 
-  console.log(password);
-  passwordText.value = password;
+
 }
 
 // Functions for random criteria - 'http://www.net-comber.com/charset.html'
@@ -75,9 +79,10 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-function generater(min = 0, max = 1) {
+function generater(min, max) {
   return Math.floor(Math.random() * (max + 1 - min) + min);
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
