@@ -1,6 +1,38 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+// Generator function
+function generatePassword(characterLength, upper, lower, number, symbol) {
+  // Final password set as a string
+  let finalPassword = '';
+  // Based off user input chooses which criteria to use
+  var criteriaCount = upper + lower + number + symbol;
+  // // The array will filter out objects what were not confirmed during the prompts
+  // var typesArr = [{ upper }, { lower }, { number }, { symbol }].filter(item => Object.values(item)[0]);
+  // If no criteria is confirmed then it will return nothing
+  if (criteriaCount === 0) {
+    return ('No criteria given');
+  };
+  // For loop based off user input of length and criteria
+  for (let i = 0; i <= characterLength; i++) {
 
+    const r = generater(0, 3);
+    if (upper && r === 0) {
+      finalPassword += getRandomUpper();
+    } else if (lower && r === 1) {
+      finalPassword += getRandomLower();
+    } else if (number && r === 2) {
+      finalPassword += getRandomNumber();
+    } else if (symbol && r === 3) {
+      finalPassword += getRandomSymbol();
+    } else {
+      i--;
+    }
+  };
+  generatedPassword = finalPassword.slice(0, characterLength);
+
+  console.log(generatedPassword);
+  return generatedPassword;
+};
 // Write password to the #password input
 function writePassword() {
   // Prompts and Confirms for password criteria
@@ -16,6 +48,7 @@ function writePassword() {
 
     // Alert to request numbers between 8-128.
     alert("Please choose numbers between 8 - 128.");
+    return;
   }
 
   var password = generatePassword(characterLength, upper, lower, number, symbol);
@@ -26,41 +59,7 @@ function writePassword() {
   passwordText.value = password;
 };
 
-// Generator function
-function generatePassword(characterLength, upper, lower, number, symbol) {
-  // Final password set as a string
-  let finalPassword = '';
-  // Based off user input chooses which criteria to use
-  var criteriaCount = upper + lower + number + symbol;
-  // The array will filter out objects what were not confirmed during the prompts
-  var typesArr = [{ upper }, { lower }, { number }, { symbol }].filter(item => Object.values(item)[0]);
-  // If no criteria is confirmed then it will return nothing
-  if (criteriaCount === 0) {
-    return ('No criteria given');
-  };
-  // For loop based off user input of length and criteria
-  for (let i = 0; i < characterLength; i += criteriaCount) {
 
-    // Based off user input the criteria is set run the randomize functions 
-    typesArr.forEach(type => {
-      // Function to go through each key individually.
-      var funcName = Object.keys(type);
-      console.log(funcName)
-      var criteria = {
-        upper: getRandomUpper(),
-        lower: getRandomLower(),
-        number: getRandomNumber(),
-        symbol: getRandomSymbol(),
-      };
-      finalPassword += criteria[funcName];
-    });
-
-  };
-  generatedPassword = finalPassword.slice(0, characterLength);
-
-  console.log(generatedPassword);
-  return generatedPassword;
-};
 
 // Functions for random criteria - 'http://www.net-comber.com/charset.html'
 function getRandomUpper() {
@@ -78,6 +77,10 @@ function getRandomNumber() {
 function getRandomSymbol() {
   var symbols = "!#$%&()*+,-./:;<=>?@[\]^_`{|}~";
   return symbols[Math.floor(Math.random() * symbols.length)];
+};
+
+function generater(min = 0, max = 1) {
+  return Math.floor(Math.random() * (max + 1 - min) + min);
 };
 
 // Add event listener to generate button
