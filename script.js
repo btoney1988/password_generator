@@ -6,15 +6,13 @@ function generatePassword(characterLength, upper, lower, number, symbol) {
   var finalPassword = '';
   // Based off user input chooses which criteria to use
   var criteriaCount = upper + lower + number + symbol;
-  // // The array will filter out objects what were not confirmed during the prompts
-  // var typesArr = [{ upper }, { lower }, { number }, { symbol }].filter(item => Object.values(item)[0]);
   // If no criteria is confirmed then it will return nothing
   if (criteriaCount === 0) {
     return ('No criteria given');
   }
   // For loop based off user input of length and criteria
   for (var i = 0; i <= characterLength; i++) {
-
+    // Random geneterator will run based on user input.
     var r = generater(0, 3);
     if (upper && r === 0) {
       finalPassword += getRandomUpper();
