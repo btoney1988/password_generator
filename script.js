@@ -12,16 +12,21 @@ function writePassword() {
     var lower = confirm("Would you like to use lowercase letters?")
     var number = confirm("Would you like to use numbers?");
     var symbol = confirm("Would you like to use symbols?");
+
   } else {
 
     // Alert to request numbers between 8-128.
     alert("Please choose numbers between 8 - 128.");
   };
+
   var password = generatePassword(upper, lower, number, symbol, length);
   var passwordText = document.querySelector("#password");
 
-  password = passwordText
+  console.log(password);
+  console.log(passwordText);
+  passwordText.value = password
 };
+
 
 // Generator function
 function generatePassword(upper, lower, number, symbol, length) {
@@ -52,14 +57,18 @@ function generatePassword(upper, lower, number, symbol, length) {
         number: getRandomNumber(),
         symbol: getRandomSymbol(),
       };
-      console.log(finalPassword += criteria[funcName]);
+      finalPassword += criteria[funcName];
+
     });
   };
 
-  const password = finalPassword.slice(0, length);
+  const generatedPassword = finalPassword.slice(0, length);
 
-  console.log(password);
+  console.log(generatedPassword);
+  return generatedPassword;
 };
+
+
 
 
 // Functions for random criteria - 'http://www.net-comber.com/charset.html'
