@@ -80,8 +80,5 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 };
 
-function generater(min = 0, max = 1) {
-  return Math.floor(Math.random() * (max + 1 - min) + min);
-}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
